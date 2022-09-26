@@ -415,8 +415,8 @@ class _meditate extends State<meditate> {
                               //padding: EdgeInsets.only(top: 25, left: 24, right: 24),
                               //margin: EdgeInsets.only(top: 25),
                               alignment: Alignment.center,
-                              child:
-                                  Image(image: AssetImage('assets/moonmoon.png')),
+                              child: Image(
+                                  image: AssetImage('assets/moonmoon.png')),
                               decoration: BoxDecoration(
                                   color: Color.fromRGBO(47, 128, 237, 1),
                                   borderRadius: BorderRadius.circular(15)),
@@ -531,8 +531,8 @@ class _meditate extends State<meditate> {
                               //padding: EdgeInsets.only(top: 25, left: 24, right: 24),
                               //margin: EdgeInsets.only(top: 25),
                               alignment: Alignment.center,
-                              child: Image(
-                                  image: AssetImage('assets/birds.png')),
+                              child:
+                                  Image(image: AssetImage('assets/birds.png')),
                               decoration: BoxDecoration(
                                   color: Color.fromRGBO(3, 158, 162, 1),
                                   borderRadius: BorderRadius.circular(15)),
