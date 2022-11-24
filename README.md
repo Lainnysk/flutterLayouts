@@ -1,16 +1,32 @@
-# pr2
+# Flutter Authorization
+## Работа с авторизацией, регистрацией и валидацией.
 
-A new Flutter project.
+__Цель работы:__
 
-## Getting Started
+Реализовать регистрацию и авторизацию пользователя, провалидировать каждое поле по 3 криетериям, реализовать хеширование пароля и вывод сообщений о неуспешной опреации при помощи SnackBar.
 
-This project is a starting point for a Flutter application.
+__Ход работы:__ 
 
-A few resources to get you started if this is your first Flutter project:
+_Окно авторизации_
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Окно авторизации содержит два поля (__Login__, __Password__) и кнопки для перехода страницу регистрации и на страницу при успешной авторизации:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="370" alt="image" src="https://user-images.githubusercontent.com/59766395/203848189-3d3f9e08-3c44-4dd2-8b46-ef28795f201b.png">
+
+
+Поле __Login__ валидируется по критериям: не пустое, содержит не менее 5 и не более 15 символов. Поле __Password__ валидируется по критериям: не пустое, содержит не менее 5 и не более 15 символов, содержит хотя бы одну заглавную латинскую букву и хотя бы один спец. символ:
+
+<img width="454" alt="image" src="https://user-images.githubusercontent.com/59766395/203847408-2b5db05c-0514-4c17-82f1-eb698f0d5655.png">
+<img width="473" alt="image" src="https://user-images.githubusercontent.com/59766395/203847588-25e6ff97-9fc8-4920-afa2-a37a7df50c9a.png">
+
+
+При несоблюдении хотя бы одного условия соответсвующее поле сигнализирует красным цветом и под полем выводится текст, информирующий об ошибке ввода:
+
+<img width="370" alt="image" src="https://user-images.githubusercontent.com/59766395/203848112-066ea23b-f2d6-4ad4-97d0-66f2b949fec6.png">
+
+
+В случае, если пользователь с такими данными не был найден, снизу выводится сообщение об ошибке
+
+<img width="370" alt="image" src="https://user-images.githubusercontent.com/59766395/203848283-16c30fa2-2a43-4187-81f2-70b67f07cd98.png">
+
+
