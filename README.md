@@ -1,16 +1,58 @@
-# pract4
+# Cubit work
+## Работа с библиотекой Cubit, обработка событий.
 
-A new Flutter project.
+__Цель работы:__
 
-## Getting Started
+Создать проект с использованием библиотеки Cubit, реализовать кликер с отображением числа нажатий, изменение темы окна.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+__Ход работы:__ 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Подключение зависимости для работы с библиотекой _Cubit_:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="164" alt="image" src="https://user-images.githubusercontent.com/59766395/205437322-cf56ecae-9f16-4048-b59d-f281aba1a3a1.png">
+
+
+Для объявления кубитов в главном окне используется _MultiBlocProvider_:
+
+<img width="362" alt="image" src="https://user-images.githubusercontent.com/59766395/205437571-d9b0ef04-aa00-4143-bb9d-21d930e78f6a.png">
+
+
+Класс кубита, включающий в себя функцию для обработки события нажатия на кнопку. Необходим для реализации счетчика. Функция принимает параметры текущей темы окна и значение операции при нажатии. При светлой теме счетчик прибавляет/отнимает 1 условную единицу, при темной теме 2 условные единицы:
+
+<img width="258" alt="image" src="https://user-images.githubusercontent.com/59766395/205437370-5106913d-3147-4382-960a-a2329a4aedbd.png">
+
+
+Кнопки _"+"_ и _"-"_ счетчика обращаются к функциям кубитов через контекст и передает необходимые параметры. За отображение текущих усл. ед. отвечает виджет _BlocBuilder_, указывающий на класс кубита и состояния, за счет чего внутренний виджет _Text_ получает состояние при совершении события:
+
+<img width="268" alt="image" src="https://user-images.githubusercontent.com/59766395/205437848-a75a66ec-b7b4-47a0-bdce-a4a168d6b8b8.png">
+
+
+Кнопка отвечающая за переключение тем обращается к кубиту _SwitchTheme_:
+
+<img width="266" alt="image" src="https://user-images.githubusercontent.com/59766395/205438109-3ace6ee1-704f-48ef-8843-efc494aafc42.png">
+
+
+Функция переключения темы принимает текущую тему и возвращает противоположную тему:
+
+<img width="341" alt="image" src="https://user-images.githubusercontent.com/59766395/205438262-f6704fbf-8813-49c9-bf62-c97ac197f1eb.png">
+
+
+При нажатии кнопок счетчика также вызывается функция, дополняющая список журнализации о предыдущем нажатии. Туда передается уже существующий список, кол-во текущих усл. ед. и текущая тема окна. Функция возвращает дополненный список строкой, содержащий информацию о дате и времени события, кол-во усл. ед на момент события и тему окна на момент события:
+
+<img width="511" alt="image" src="https://user-images.githubusercontent.com/59766395/205438435-db1c550b-0df2-4baf-8215-622a64fe6eae.png">
+
+
+Сам список журнализации реализван при помощи виджета _SingleChildScrollView_, обернутого в _BlocBuilder_:
+
+<img width="309" alt="image" src="https://user-images.githubusercontent.com/59766395/205438507-e4e6399f-6214-4768-8e22-36dab4314644.png">
+
+
+Результат работы счетчика:
+
+<img width="526" alt="image" src="https://user-images.githubusercontent.com/59766395/205438626-d6690352-d2a5-4e31-bd9a-a2b10de94bcb.png">
+
+
+__Вывод:__
+
+В ходе практической работы был создан проект с использованием библиотеки Cubit, реализован кликер с отображением числа нажатий и изменение темы окна.
